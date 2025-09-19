@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         ),
         body: Center(
           child: Row(
-            mainAxisSize: MainAxisSize.max,
+            mainAxisSize: MainAxisSize.min,
             children: [
               KotakBiruJempolKecil(),
               SizedBox(width: 20), // jarak antar kotak
