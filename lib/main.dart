@@ -10,70 +10,49 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Alignment',
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Alignment'),
-        ),
+        appBar: AppBar(title: Text('Alignment')),
         body: const Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text(
-                'Suhu:',
-                style: TextStyle(fontSize: 30),
-              ),
-              Text(
-                '25\u00B0C',
-                style: TextStyle(fontSize: 75),
-              ),
-              Icon(
-                Icons.sunny,
-                color: Colors.amber,
-                size: 45,
-              ),
-            ],
-          ),
+          child: WeatherPage(),
         ),
       ),
     );
   }
 }
 
-class KotakBiruJempol extends StatelessWidget {
+class WeatherPage extends StatelessWidget {
+  const WeatherPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 100,
-      height: 100,
-      decoration: BoxDecoration(
-        color: Colors.blue,
-        border: Border.all(color: Colors.black, width: 2),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Icon(
-        Icons.thumb_up,
-        color: Colors.white,
-        size: 40,
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Text('Malang', style: TextStyle(fontSize: 50)),
+        Text('20\u00B0', style: TextStyle(fontSize: 100)),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            WeatherOfDay(day: 'Minggu', temperature: '20\u00B0C', icon: Icons.sunny),
+            WeatherOfDay(day: 'Senin', temperature: '23\u00B0C', icon: Icons.cloudy_snowing),
+            WeatherOfDay(day: 'Selasa', temperature: '22\u00B0C', icon: Icons.cloud),
+          ],
+        ),
+      ],
     );
   }
 }
 
-class KotakBiruJempolKecil extends StatelessWidget {
+class WeatherOfDay extends StatelessWidget {
+  final String day;
+  final String temperature;
+  final IconData icon;
+
+  WeatherOfDay({super.key, required this.day, required this.temperature, required this.icon});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 75,
-      height: 75,
-      decoration: BoxDecoration(
-        color: Colors.blue,
-        border: Border.all(color: Colors.black, width: 2),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Icon(
-        Icons.thumb_up,
-        color: Colors.white,
-        size: 40,
-      ),
+    return Column(
+      children: [Text(day, style: TextStyle(fontSize: 20)), Icon(icon, size: 50), Text(temperature, style: TextStyle(fontSize:20))],
     );
   }
 }
