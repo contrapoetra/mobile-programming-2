@@ -13,14 +13,23 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('Alignment'),
         ),
-        body: Center(
+        body: const Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              KotakBiruJempolKecil(),
-              KotakBiruJempol(),
-              KotakBiruJempolKecil(),
+              Text(
+                'Suhu:',
+                style: TextStyle(fontSize: 30),
+              ),
+              Text(
+                '25\u00B0C',
+                style: TextStyle(fontSize: 75),
+              ),
+              Icon(
+                Icons.sunny,
+                color: Colors.amber,
+                size: 45,
+              ),
             ],
           ),
         ),
