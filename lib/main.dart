@@ -15,12 +15,10 @@ class MyApp extends StatelessWidget {
         ),
         body: Center(
           child: Row(
-            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               KotakBiruJempolKecil(),
-              SizedBox(width: 20), // jarak antar kotak
               KotakBiruJempol(),
-              SizedBox(width: 20),
               KotakBiruJempolKecil(),
             ],
           ),
